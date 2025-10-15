@@ -1,26 +1,54 @@
-// src/components/BottomNav.jsx
-import React from "react";
-import { Home, MessageCircle, User, Bell } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Box, MenuItem, MenuList } from "@mui/material";
 
 export default function NavigationButton() {
+  const menuItem = [
+    {
+      id: 0,
+      label: "home",
+      url: "/",
+    },
+    {
+      id: 1,
+      label: "Kerajang",
+      url: "/keranjang",
+    },
+    {
+      id: 2,
+      label: "Notifikasi",
+      url: "/notif",
+    },
+    {
+      id: 3,
+      label: "Saya",
+      url: "/saya",
+    },
+  ];
+
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-background-paper shadow-lg rounded-2xl z-50 px-6 py-2 flex justify-around items-center w-[90%] max-w-sm border border-gray-700/40">
-      <button className="flex flex-col items-center text-textColor-secondary hover:text-primary-light">
-        <Home size={22} />
-        <span className="text-[10px] mt-1">Home</span>
-      </button>
-      <button className="flex flex-col items-center text-textColor-secondary hover:text-primary-light">
-        <MessageCircle size={22} />
-        <span className="text-[10px] mt-1">Chat</span>
-      </button>
-      <button className="flex flex-col items-center text-textColor-secondary hover:text-primary-light">
-        <Bell size={22} />
-        <span className="text-[10px] mt-1">Notif</span>
-      </button>
-      <button className="flex flex-col items-center text-textColor-secondary hover:text-primary-light">
-        <User size={22} />
-        <span className="text-[10px] mt-1">Profile</span>
-      </button>
-    </div>
+    <Box
+      sx={{
+        bottom: 0,
+        position: "fixed",
+        left: 0,
+        right: 0,
+        background: "background.paper",
+        boxShadow: "0 -2px 8px rgba(0,0,0,0.08)",
+      }}
+    >
+      <MenuList
+        sx={{
+          display: "space-between",
+
+          justifyContent: "center",
+        }}
+      >
+        {menuItem.map((item) => (
+          <MenuItem component={Link} to={item.url} key={item.id}>
+            {item.label}
+          </MenuItem>
+        ))}
+      </MenuList>
+    </Box>
   );
 }

@@ -1,12 +1,15 @@
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import React from "react";
+import Category from "./Category";
+import PreviewItem from "./PreviewItem";
 
 function Landing() {
   return (
-    <div className="min-h-screen pb-16 bg-background-default text-textColor-primary">
-      <h1>Welcome</h1>
-      <h3>Have a Nice Shopping!</h3>
-    </div>
+    <Box sx={{ textAlign: "center" }}>
+      <Category />
+      <Divider />
+      <PreviewItem />
+    </Box>
   );
 }
 
