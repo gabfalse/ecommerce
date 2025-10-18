@@ -32,7 +32,7 @@ export default function NavigationButton() {
         position: "fixed",
         left: 0,
         right: 0,
-        background: "background.paper",
+        background: "white",
         boxShadow: "0 -2px 8px rgba(0,0,0,0.08)",
       }}
     >
